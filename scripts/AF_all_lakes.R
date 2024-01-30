@@ -105,7 +105,7 @@ ggplotly(out_df %>%
 
 out_df %>% 
   ggplot(aes(x = as.factor(year), y = AF, group = paste0(lake, method), color = lake, linetype = fct_rev(method))) +
-  geom_line() +
+  geom_line(size = 1, lineend = 'round') +
   geom_point(size = 3) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, vjust = -0.001),
