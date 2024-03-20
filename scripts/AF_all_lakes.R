@@ -95,25 +95,15 @@ ggplotly(out_df %>%
     ggtitle('monthly data')) 
 
 ggplotly(out_df %>% 
-           ggplot(aes(x = as.factor(year), y = AF, group = lake, color = lake, linetype = fct_rev(method))) +
-           geom_line() +
-           geom_point() +
-           theme_bw() +
-           theme(axis.text.x = element_text(angle = 45)) +
-           facet_wrap(~mixing_state) + 
-           ggtitle('monthly data + buoy data'))
-
-out_df %>% 
   ggplot(aes(x = as.factor(year), y = AF, group = paste0(lake, method), color = lake, linetype = fct_rev(method))) +
-  geom_line(size = 1, lineend = 'round') +
-  geom_point(size = 3) +
+  geom_line() +
+  geom_point() +
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 45, vjust = -0.001),
-        text = element_text(size = 18)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = -0.001)) +
   facet_wrap(~mixing_state) + 
   ggtitle('monthly data + buoy data') +
   labs(linetype = 'method') +
-  xlab('')
+  xlab(''))
 
 ggplotly(out_df %>% 
            filter(method=='hf') %>% 
